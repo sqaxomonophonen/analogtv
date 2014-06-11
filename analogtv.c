@@ -59,6 +59,11 @@
   Fixed a bug or two.
 */
 
+/*
+  2014-06-11, Anders Kaare Straadt <anders@straadt.dk>:
+  forked analogtv.*, stripped it of xlib/xscreensaver dependencies
+*/
+
 
 struct analogtv_yiq_s {
   float y,i,q;
@@ -142,7 +147,7 @@ analogtv_set_defaults(analogtv *it)
 
 
 /* Can be any power-of-two <= 32. 16 a slightly better choice for 2-3 threads. */
-#define ANALOGTV_SUBTOTAL_LEN 32 // XXX kill? no threads!
+#define ANALOGTV_SUBTOTAL_LEN 32
 
 analogtv *
 analogtv_allocate(int width, int height)
@@ -1237,7 +1242,6 @@ analogtv_input_allocate()
   This isn't especially tuned for speed.
 */
 
-// XXX vvv this is also interesting
 #if 0
 int
 analogtv_load_ximage(analogtv *it, analogtv_input *input, XImage *pic_im)
@@ -1495,7 +1499,6 @@ static const char hextonib[128] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
                                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
 
-// XXX this contains an RGB->ntsc conversion; isn't it all I need?
 /*
   Much of this function was adapted from logo.c
  */
